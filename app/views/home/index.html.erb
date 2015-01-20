@@ -1,3 +1,16 @@
-<h1>Hello World</h1>
+<h1>Car Dealership</h1>
 
 <%= link_to "New Car", new_car_path %>
+<br>
+<ul>
+<% @cars.each do |car| %>
+	<li>
+		<%= link_to car.make, car_path(car) %>
+		<%= car.model %>
+		<%= car.year %>
+		<%= car.seats %>
+		<%= link_to "Edit", edit_car_path(car) %>
+		<%= link_to "Delete", car_path(car), method: :delete %>
+	</li>
+<% end %>
+</ul>
