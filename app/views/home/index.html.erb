@@ -1,6 +1,8 @@
 <h1>Car Dealership</h1>
 
 <%= link_to "New Car", new_car_path %>
+<%= link_to "New Employee", new_employee_path %>
+<%= link_to "New Customer", new_customer_path %>
 <br>
 <ul>
 <% @cars.each do |car| %>
@@ -13,4 +15,30 @@
 		<%= link_to "Delete", car_path(car), method: :delete %>
 	</li>
 <% end %>
+</ul>
+<br>
+<ul>
+	<% @employees.each do |employee| %>
+	<li>
+		<%= link_to employee.first_name, employee_path(employee) %>
+		<%= employee.last_name %>
+		<%= employee.email %>
+		<%= employee.phone %>
+		<%= link_to "Edit", edit_employee_path(employee) %>
+		<%= link_to "Delete", employee_path(employee), method: :delete %>
+	</li>
+	<% end %>
+</ul>
+
+<ul>
+	<%= @customers.each do |customer| %>
+	<li>
+		<%= link_to customer.customer_first_name, customer_path(customer) %>
+		<%= customer.customer_last_name %>
+		<%= customer.customer_email %>
+		<%= customer.customer_phone %>
+		<%= link_to "Edit", edit_customer_path(customer) %>
+		<%= link_to "Delete", customer_path(customer), method: :delete %>
+	</li>
+	<% end %>
 </ul>
